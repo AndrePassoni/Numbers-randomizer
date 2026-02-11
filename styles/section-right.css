@@ -1,0 +1,63 @@
+.right {
+    max-width: 30.125rem;
+    & .header-form {
+        margin-bottom: 2.5rem;
+        & fieldset {
+            font: var(--label-md);
+            color: var(--content-primary);
+            text-transform: uppercase;
+            border: none;
+            margin-bottom: 0.25rem;
+        }
+
+        & label {
+            font: var(--p-lg);
+        }
+    }
+
+    & .inputs-wrapper {
+        display: flex;
+        gap: 0.75rem;
+        margin-bottom: 1.25rem;
+        & .input-wrapper {
+            display: grid;
+            gap: 0.5rem;
+            & label {
+                font: var(--label-sm);
+                text-transform: uppercase;
+                text-align: center;
+            }
+
+            & input {
+                background-color: var(--background-secondary);
+                border: none;
+                color: var(--content-primary);
+                font: var(--display-sm);
+                width: 5.375rem;
+                height: 3.5rem;
+                text-align: center;
+                border-radius: 0.5rem;
+            }
+
+            &:hover {
+                & input {
+                    background-color: var(--background-tertiary);
+                }
+
+                & label {
+                    color: var(--content-brand);
+                }
+            }
+
+            &:focus-within {
+                & input {
+                    background-color: var(--background-tertiary);
+                }
+
+                & label {
+                    color: var(--content-brand);
+                }
+            }
+        }
+    }
+}
