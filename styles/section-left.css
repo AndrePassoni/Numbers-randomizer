@@ -1,0 +1,44 @@
+.logo {
+    margin: 4.75rem 7.5rem 5.5rem;
+}
+
+.left {
+    max-width: 32rem;
+    & .online {
+        font: var(--overline);
+        text-transform: uppercase;
+        background: linear-gradient(to right, var(--gradient-content));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 0.75rem;
+    }
+
+    & h1 {
+        color: var(--content-primary);
+        text-transform: uppercase;
+        font: var(--display-lg);
+        margin-bottom: 2.5rem;
+    }
+
+    & .questions {
+        max-width: 24.125rem;
+        display: grid;
+        gap: 2.25rem;
+
+        & h3 {
+            color: var(--content-brand);
+            font: var(--p-md);
+        }
+
+        & p {
+            font: var(--p-sm);
+        }
+
+        & .question {
+            display: flex;
+            gap: 0.5rem;
+            align-items: start;
+        }
+    }
+}
