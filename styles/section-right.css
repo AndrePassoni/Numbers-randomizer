@@ -60,4 +60,90 @@
             }
         }
     }
+
+    & .toggle-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem; 
+        margin-bottom: 2.5rem; 
+        
+        & .toggle-input {
+            display: none;
+        }
+
+        & .toggle-label {
+            position: relative;
+            width: 3rem;   
+            height: 1.5rem; 
+            background-color: var(--background-gray); 
+            border-radius: 999px; 
+            cursor: pointer;
+            transition: background 0.3s ease;
+            &::before {
+                content: '';
+                position: absolute;
+                width: 1rem;   
+                height: 1rem;
+                background-color: var(--content-primary); 
+                border-radius: 50%;
+                
+                top: 0.25rem; 
+                left: 0.25rem;
+                
+                transition: transform 0.5s ease;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            }
+        }
+
+        & span {
+            font: var(--p-md); 
+            color: var(--content-primary);
+        }
+        
+        & .toggle-input:checked + .toggle-label {
+            background: linear-gradient(90deg, var(--gradient-background));
+        }
+
+        & .toggle-input:checked + .toggle-label::before {
+            transform: translateX(1.5rem); 
+        }
+    }
+
+    & .btn-randomize {
+        background-color: var(--background-tertiary);
+        border: none;
+        border-radius: 0.5rem;
+        color: var(--content-primary);
+        font: var(--label-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 3.5rem;
+        text-transform: uppercase;
+        gap: 0.5rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        border: 2px solid linear-gradient(to right, var(--gradient-border));
+
+        &:hover {
+            background-color: var(--background-secondary);
+
+            & img {
+                animation: btn-arrow 1.6s ease infinite;
+            }
+        }
+    }
+}
+
+@keyframes btn-arrow {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(0.5rem);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }

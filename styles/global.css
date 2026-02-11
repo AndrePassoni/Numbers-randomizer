@@ -47,10 +47,10 @@ body{
 }
 
 .bg-img {
-    position: absolute;
+    position: fixed;
     z-index: -3;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 
 
     background-image: 
@@ -67,6 +67,5 @@ body{
 
 main {
     display: flex;
-    /* gap: 6.75rem; */
     justify-content: space-around;
 }
