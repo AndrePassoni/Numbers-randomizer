@@ -43,40 +43,55 @@
         </section>
 
         <section class="right">
-            <form action="">
-                <div class="header-form">
-                    <fieldset>quero sortear:</fieldset>
-                    <label>defina o intervalo e a quantidade de números, clique em "Sortear" e veja os resultados na tela. É rápido e fácil!</label>
+            <div class="content-draw">
+                <form id="form-sorteio">
+                    <div class="header-form">
+                        <fieldset>quero sortear:</fieldset>
+                        <label>defina o intervalo e a quantidade de números, clique em "Sortear" e veja os resultados na tela. É rápido e fácil!</label>
+                    </div>
+
+                    <div class="inputs-wrapper">
+                        <div class="input-wrapper">
+                            <label for="numbers">números</label>
+                            <input type="text" name="numbers" id="numbers" value="1" min="1">
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="from">de</label>
+                            <input type="text" name="from" id="from" value="1">
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="to">a</label>
+                            <input type="text" name="to" id="to" value="100">
+                        </div>
+                    </div>
+
+                    <div class="toggle-wrapper">
+                        <input type="checkbox" name="no-repeat" id="no-repeat" class="toggle-input" checked>
+                        <label for="no-repeat" class="toggle-label"></label>
+                        <span>Não repetir número</span>
+                    </div>
+
+                    <button type="submit" class="btn-randomize">
+                        Sortear
+                        <img src="assets/icons/arrow-right.svg" alt="">
+                    </button>
+                </form>
+            </div>
+        
+            <div class="content-result hide">
+                <div class="header-result">
+                    <fieldset>Resultado do sorteio</fieldset>
+                    <label>1º Resultado</label>
                 </div>
 
-                <div class="inputs-wrapper">
-                    <div class="input-wrapper">
-                        <label for="numbers">números</label>
-                        <input type="text" name="numbers" id="numbers">
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="from">de</label>
-                        <input type="text" name="from" id="from">
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="to">a</label>
-                        <input type="text" name="to" id="to">
-                    </div>
-                </div>
+                <div class="result-numbers" id="result-values"></div>
 
-                <div class="toggle-wrapper">
-                    <input type="checkbox" name="no-repeat" id="no-repeat" class="toggle-input" checked>
-                    <label for="no-repeat" class="toggle-label"></label>
-                    <span>Não repetir número</span>
-                </div>
-
-                <button type="submit" class="btn-randomize">
-                    Sortear
-                    <img src="assets/icons/arrow-right.svg" alt="">
+                <button type="button" class="btn-randomize" id="btn-reset">
+                    Sortear Novamente
+                    <img src="assets/icons/reload.svg" alt="">
                 </button>
-            </form>
+            </div>
         </section>
-
     </main>
 
     <script src="scripts.js"></script>

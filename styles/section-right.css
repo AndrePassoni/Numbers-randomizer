@@ -26,32 +26,28 @@
                 font: var(--label-sm);
                 text-transform: uppercase;
                 text-align: center;
+                transition: 0.3s ease;
             }
 
             & input {
                 background-color: var(--background-secondary);
-                border: none;
+                border: 3px solid transparent;
                 color: var(--content-primary);
                 font: var(--display-sm);
                 width: 5.375rem;
                 height: 3.5rem;
                 text-align: center;
                 border-radius: 0.5rem;
+                transition: background 0.3s;
+                outline: none;
             }
 
-            &:hover {
+            &:hover, &:focus-within {
+        
                 & input {
-                    background-color: var(--background-tertiary);
-                }
-
-                & label {
-                    color: var(--content-brand);
-                }
-            }
-
-            &:focus-within {
-                & input {
-                    background-color: var(--background-tertiary);
+                    background-image: linear-gradient(var(--background-tertiary), var(--background-tertiary)), linear-gradient(to right, var(--gradient-border));
+                    background-origin: border-box;
+                    background-clip: padding-box, border-box;
                 }
 
                 & label {
@@ -111,7 +107,7 @@
 
     & .btn-randomize {
         background-color: var(--background-tertiary);
-        border: none;
+        border: 3px solid transparent;
         border-radius: 0.5rem;
         color: var(--content-primary);
         font: var(--label-sm);
@@ -123,17 +119,84 @@
         text-transform: uppercase;
         gap: 0.5rem;
         cursor: pointer;
-        transition: background-color 0.3s;
-        border: 2px solid linear-gradient(to right, var(--gradient-border));
+        transition: background 0.3s;
 
         &:hover {
-            background-color: var(--background-secondary);
+            background-image: linear-gradient(var(--background-secondary), var(--background-secondary)), linear-gradient(var(--angle), var(--gradient-border));
+        
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+
+            animation: rotate-border 3s linear infinite;
 
             & img {
                 animation: btn-arrow 1.6s ease infinite;
             }
         }
     }
+
+    & .content-result {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-width: 30.125rem;
+        max-width: 30.125rem;
+        min-height: 25rem;
+        width: 100%;
+        
+        & .header-result {
+            text-align: center;
+            width: 100%;
+            margin-bottom: 3rem;
+            
+            & fieldset {
+                font: var(--label-md);
+                color: var(--content-primary);
+                text-transform: uppercase;
+                border: none;
+                margin-bottom: 0.5rem;
+            }
+        
+            & label {
+                font: var(--overline);
+                color: var(--content-secondary);
+                text-transform: uppercase;
+            }
+        }
+        
+        & .result-numbers {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+            width: 100%;
+        }
+        
+        & .result-number {
+            font: var(--display-md);
+            color: var(--content-brand);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    
+        #btn-reset {
+            width: 100%;
+        }
+    }
+    
+}
+
+.hide {
+    display: none !important;
+}
+
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 90deg;
+    inherits: false;
 }
 
 @keyframes btn-arrow {
@@ -145,5 +208,11 @@
     }
     100% {
         transform: translateX(0);
+    }
+}
+
+@keyframes rotate-border {
+    to {
+        --angle: 450deg;
     }
 }
