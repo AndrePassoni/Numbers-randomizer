@@ -17,6 +17,11 @@ form.onsubmit = (event) => {
     const max = parseInt(inputTo.value);
     const noRepeat = toggleRepeat.checked;
 
+    if (inputNumbers.value === '' || inputFrom.value === '' || inputTo.value === '') {
+        alert('Por favor, preencha todos os campos para realizar o sorteio.');
+        return;
+    }
+
     if (min >= max) {
         alert('O valor "De" deve ser menor que o valor "Até".');
         return;

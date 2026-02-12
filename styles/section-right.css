@@ -168,25 +168,58 @@
         & .result-numbers {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.5rem;
+            gap: 1rem;
             justify-content: center;
+            margin-top: 2rem;
             margin-bottom: 3rem;
             width: 100%;
         }
         
         & .result-number {
+            position: relative;
+            z-index: 1;
             font: var(--display-md);
-            color: var(--content-brand);
             display: flex;
             align-items: center;
             justify-content: center;
+
+            width: 5rem;
+            height: 5rem;
+            border-radius: 2rem;
+
+            animation-name: animar-conjunto;
+            animation-duration: 2s;
+            animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation-fill-mode: forwards;
+            
+            color: transparent;
+            transform: rotate(-45deg);
+
+            &::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                
+                background-color: var(--content-brand);
+                border-radius: 1.75rem;
+                z-index: -1;
+                
+                animation-name: animar-fundo;
+                animation-duration: 2s;
+                animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                animation-fill-mode: forwards;
+                animation-delay: inherit; 
+                
+                scale: 0;
+            }
         }
     
         #btn-reset {
             width: 100%;
         }
     }
-    
 }
 
 .hide {
@@ -214,5 +247,50 @@
 @keyframes rotate-border {
     to {
         --angle: 450deg;
+    }
+}
+
+@keyframes animar-conjunto {
+    0% {
+        color: transparent;
+        transform: rotate(-45deg);
+    }
+    20% {
+        color: transparent;
+        transform: rotate(-45deg);
+    }
+    40% {
+        color: var(--color-inverse);
+        transform: rotate(0deg);
+    }
+    75% {
+        color: var(--color-inverse);
+        transform: rotate(0deg);
+    }
+    85% {
+        color: var(--content-brand); 
+    }
+    100% {
+        color: var(--content-brand);
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes animar-fundo {
+    0% {
+        scale: 0;
+        opacity: 0;
+    }
+    20% {
+        scale: 1;
+        opacity: 1;
+    }
+    75% {
+        scale: 1;
+        opacity: 1;
+    }
+    100% {
+        scale: 0;
+        opacity: 0;
     }
 }
