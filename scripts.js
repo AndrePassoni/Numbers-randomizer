@@ -3,11 +3,17 @@ const contentDraw = document.querySelector('.content-draw');
 const contentResult = document.querySelector('.content-result');
 const resultValues = document.getElementById('result-values');
 const btnReiniciar = document.getElementById('btn-reset');
-
 const inputNumbers = document.getElementById('numbers');
 const inputFrom = document.getElementById('from');
 const inputTo = document.getElementById('to');
 const toggleRepeat = document.getElementById('no-repeat');
+const inputs = [inputNumbers, inputFrom, inputTo];
+
+inputs.forEach(input => {
+    input.oninput = () => {
+        input.value = input.value.replace(/[^0-9]/g, '');
+    };
+});
 
 form.onsubmit = (event) => {
     event.preventDefault(); 
